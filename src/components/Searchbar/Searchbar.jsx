@@ -10,9 +10,9 @@ export default class Searchbar extends Component {
     this.setState({
       searchQuery: '',
     });
+    this.props.searchValue(this.state.searchQuery);
   };
-  handleChange = e => {
-    const value = e.currentTarget.value.toLowerCase();
+  handleChange = ({ currentTarget: { value } }) => {
     this.setState({ searchQuery: value });
   };
   render() {

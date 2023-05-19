@@ -10,9 +10,11 @@ export default function Loader() {
       secondaryColor="#dffd00"
       radius="12.5"
       ariaLabel="mutating-dots-loading"
-      wrapperStyle={{}}
-      wrapperClass=""
-      visible={false}
+      wrapperStyle={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: '100px',
+      }}
     />
   );
 }

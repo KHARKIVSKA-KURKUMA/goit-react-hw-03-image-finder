@@ -8,10 +8,14 @@ export const GalleryList = styled.ul`
   flex-wrap: wrap;
 `;
 export const GalleryItem = styled.li`
-  width: calc((100% - 30px) / 2);
+  width: calc((100% - 45px) / 3);
   img {
     width: 100%;
-    height: auto;
+    height: 200px;
     border-radius: 4px;
+    &:hover {
+      transform: scale(1.03);
+      cursor: zoom-in;
+    }
   }
 `;
