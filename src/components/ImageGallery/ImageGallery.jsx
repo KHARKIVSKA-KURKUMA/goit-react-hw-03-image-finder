@@ -23,24 +23,22 @@ export default class ImageGallery extends Component {
     const searchQuery = this.props.searchText.toLowerCase().trim();
     if (prevProps.searchText !== searchQuery && searchQuery) {
       this.setState({ status: 'pending' });
-      {
-        getSearchPic(searchQuery)
-          .then(pictures => {
-            if (pictures.hits.length > 0) {
-              this.setState({
-                pictures: pictures.hits,
-                status: 'resolved',
-                totalHits: pictures.total,
-              });
-            } else {
-              this.setState({ status: 'idle', pictures: [] });
-              toast.error('Enter correct query');
-            }
-          })
-          .catch(err => {
-            this.setState({ err, status: 'rejected' });
-          });
-      }
+      getSearchPic(searchQuery)
+        .then(pictures => {
+          if (pictures.hits.length > 0) {
+            this.setState({
+              pictures: pictures.hits,
+              status: 'resolved',
+              totalHits: pictures.total,
+            });
+          } else {
+            this.setState({ status: 'idle', pictures: [] });
+            toast.error('Enter correct query');
+          }
+        })
+        .catch(err => {
+          this.setState({ err, status: 'rejected' });
+        });
     }
   }
   /* -------------------------------------------------------------------------- */
